@@ -6,7 +6,7 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:13:03 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/23 11:49:00 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/05/24 21:33:21 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_printf(const char *str, ...)
 	while (str[++i])
 	{
 		if str[i] == '%'
-			detect_conversion(&str[i]);
+			detect_conversion(&str + i, &j);
 	}
+	return (i + j);
 }
