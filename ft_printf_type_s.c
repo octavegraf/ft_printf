@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_type_s.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/23 11:26:14 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/24 21:41:24 by ocgraf           ###   ########.fr       */
+/*   Created: 2025/05/24 21:42:58 by ocgraf            #+#    #+#             */
+/*   Updated: 2025/05/24 22:25:27 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include "libft/libft.h"
-# include <stdarg.h>
+#include "ft_printf.h"
 
-int	ft_printf(const char *str, ...);
+void	ft_printf_type_s(int *j, char *s)
+{
 
-#endif
+}
