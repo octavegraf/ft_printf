@@ -6,7 +6,7 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:13:03 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/25 08:39:38 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/05/27 09:19:10 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	detect_conversion(char **str, va_list(params), int *j)
 		ft_printf_type_s(j, va_arg(params, char *));
 	else if (*str + 1 == 'p')
 		ft_printf_type_p(j, va_arg(params, void *));
-	
+	else if (*str + 1 == 'd' || *str + 1 == 'i')
+		ft_printf_type_d_i(j, va_arg(params, int));
+	else if (*str + 1 == 'u')
+		ft_printf_type_p(j, va_arg(params, void *));
 }
 
 int	ft_printf(const char *str, ...)
