@@ -6,7 +6,7 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 08:39:11 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/28 10:28:58 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/05/28 16:05:58 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	ft_printf_type_p(int *j, void *ptr)
 	mem = (unsigned long long int)ptr;
 	i = 14;
 	hexa = "0123456789abcdef";
-	if (!result)
-		return ;
 	while (--i >= 0)
 	{
 		result[i] = hexa[mem % 16];
