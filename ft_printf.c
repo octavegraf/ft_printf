@@ -6,13 +6,13 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:13:03 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/27 11:54:45 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/05/28 15:22:24 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	detect_conversion(const char *str, va_list(params), int *j)
+void	detect_conversion(const char *str, va_list params, int *j)
 {
 	if (*(str + 1) == 'c')
 		ft_printf_type_c(j, va_arg(params, int));
@@ -25,9 +25,9 @@ void	detect_conversion(const char *str, va_list(params), int *j)
 	else if (*(str + 1) == 'u')
 		ft_printf_type_u(j, va_arg(params, unsigned int));
 	else if (*(str + 1) == 'x')
-		ft_printf_type_x(j, va_arg(params, int), "0123456789abcdef");
+		ft_printf_type_x(j, va_arg(params, unsigned int), "0123456789abcdef");
 	else if (*(str + 1) == 'X')
-		ft_printf_type_x(j, va_arg(params, int), "0123456789ABCDEF");
+		ft_printf_type_x(j, va_arg(params, unsigned int), "0123456789ABCDEF");
 	else if (*(str + 1) == '%')
 	{
 		ft_putchar('%');
@@ -52,7 +52,7 @@ int	ft_printf(const char *str, ...)
 			i += 2;
 			j -= 2;
 		}
-			ft_putchar(str[i]);
+		ft_putchar(str[i]);
 		i++;
 	}
 	va_end(params);
