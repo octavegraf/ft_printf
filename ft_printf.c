@@ -6,7 +6,7 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:13:03 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/28 15:22:24 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/05/30 15:57:04 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_printf(const char *str, ...)
 	va_end(params);
 	return (i + j);
 }
-
+/* 
 int	main(void)
 {
 	char	*test = "";
@@ -67,21 +67,30 @@ int	main(void)
 
 	ft_printf_len = ft_printf("%c\n", 'a');
 	printf_len = printf("%c\n", 'a');
-	printf("\nft_printf lenght = %d, printf lenght = %d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
+	printf("\nft_printf lenght = %d, printf lenght = 
+			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
 	ft_printf_len = ft_printf("%s\n", "Ceci est un test.");
 	printf_len = printf("%s\n", "Ceci est un test.");
-	printf("\nft_printf lenght = %d, printf lenght = %d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
+	printf("\nft_printf lenght = %d, printf lenght = 
+			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
 	ft_printf_len = ft_printf("%p\n", test);
 	printf_len = printf("%p\n", test);
-	printf("\nft_printf lenght = %d, printf lenght = %d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
-	ft_printf_len = ft_printf("%d, %i; %d, %i\n", INT_MIN, INT_MIN, INT_MAX, INT_MAX);
+	printf("\nft_printf lenght = %d, printf lenght = 
+			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
+	ft_printf_len = ft_printf("%d, %i; %d, %i\n", INT_MIN, INT_MIN, INT_MAX, 
+			INT_MAX);
 	printf_len = printf("%d, %i; %d, %i\n", INT_MIN, INT_MIN, INT_MAX, INT_MAX);
-	printf("\nft_printf lenght = %d, printf lenght = %d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
-	ft_printf_len = ft_printf("%x, %X; %x, %X\n", INT_MIN, INT_MIN, INT_MAX, INT_MAX);
+	printf("\nft_printf lenght = %d, printf lenght = 
+			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
+	ft_printf_len = ft_printf("%x, %X; %x, %X\n", INT_MIN, INT_MIN, INT_MAX, 
+			INT_MAX);
 	printf_len = printf("%x, %X; %x, %X\n", INT_MIN, INT_MIN, INT_MAX, INT_MAX);
-	printf("\nft_printf lenght = %d, printf lenght = %d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
+	printf("\nft_printf lenght = %d, printf lenght = 
+			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
 	ft_printf_len = ft_printf("%%\n");
 	printf_len = printf("%%\n");
-	printf("\nft_printf lenght = %d, printf lenght = %d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
+	printf("\nft_printf lenght = %d, printf lenght = 
+			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
 	return (0);
 }
+ */
