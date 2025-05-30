@@ -6,11 +6,11 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 15:34:02 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/27 09:18:36 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/05/30 16:00:42 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "ft_printf.h"
 
 void	ft_printf_type_d_i(int *j, int nb)
 {
