@@ -1,30 +1,40 @@
-SRC		= ft_printf.c ft_printf_type_c.c ft_printf_type_p.c ft_printf_type_u.c \
-ft_printf_type_d_i.c ft_printf_type_s.c ft_printf_type_x.c
+CC				= cc
+CFLAGS			= -Wall -Wextra -Werror -g
+NAME			= libftprintf.a
+SOURCES			= ft_printf.c ft_printf_type_c.c ft_printf_type_p.c ft_printf_type_u.c \
+				  ft_printf_type_d_i.c ft_printf_type_s.c ft_printf_type_x.c
+HEADER			= ft_printf.h
+INCLUDES		= -I.
+OBJECTS			= $(SOURCES:.c=.o)
 
-NAME	= libftprintf.a
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
-HEADER	= ft_printf.h
-OBJ		= $(SRC:.c=.o)
+LIBFT_DIR		= ./libft
+LIBFT			= libft.a
+LIBFT_PATH		= $(LIBFT_DIR)/$(LIBFT)
+LIBFT_FLAGS		= -L$(LIBFT_DIR) -lft
 
-LIBFT_DIR	= libft
-LIBFT_A		= $(LIBFT_DIR)/libft.a
+all: $(NAME)
 
-all: $(LIBFT_A) $(NAME)
+$(NAME): $(LIBFT_PATH) $(OBJECTS)
+	cp $(LIBFT_PATH) ./
+	mv $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OBJECTS)
 
-$(LIBFT_A):
-	$(MAKE) -C $(LIBFT_DIR)
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) $(INCLUDES) -I$(LIBFT_DIR) -c $< -o $@
 
-$(NAME):	$(OBJ)
-			ar rc $(NAME) $(OBJ)
-			ranlib $(NAME)
+$(LIBFT_PATH):
+	make -C $(LIBFT_DIR) --no-print-directory
 
 clean:
-			rm -rf $(OBJ)
-			$(MAKE) clean -C $(LIBFT_DIR)
+	rm -f $(OBJECTS)
+	make -C $(LIBFT_DIR) clean --no-print-directory
 
-fclean:		clean
-			rm -rf $(NAME)
-			$(MAKE) fclean -C $(LIBFT_DIR)
+fclean: clean
+	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean --no-print-directory
 
-re:			fclean all
+re: fclean all
+
+bonus: all
+
+.PHONY: all clean fclean re bonus

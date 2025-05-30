@@ -6,16 +6,16 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:13:03 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/30 15:57:04 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/05/30 17:07:59 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	detect_conversion(const char *str, va_list params, int *j)
+void	detect_conversion(const char **str, va_list params, int *bytes)
 {
-	if (*(str + 1) == 'c')
-		ft_printf_type_c(j, va_arg(params, int));
+	if (**str == 'c')
+		ft_printf_type_c(va_arg(params, int), bytes);
 	else if (*(str + 1) == 's')
 		ft_printf_type_s(j, va_arg(params, char *));
 	else if (*(str + 1) == 'p')
@@ -31,32 +31,28 @@ void	detect_conversion(const char *str, va_list params, int *j)
 	else if (*(str + 1) == '%')
 	{
 		ft_putchar('%');
-		*j += 1;
+		**str++;
 	}
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	params;
-	int		i;
-	int		j;
+	int		bytes;
 
 	va_start(params, str);
-	i = 0;
-	j = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%')
+			detect_conversion(&str, params, &bytes);
+		else
 		{
-			detect_conversion(str + i, params, &j);
-			i += 2;
-			j -= 2;
+			ft_putchar(*str);
+			str += 1;
 		}
-		ft_putchar(str[i]);
-		i++;
 	}
 	va_end(params);
-	return (i + j);
+	return (bytes);
 }
 /* 
 int	main(void)

@@ -6,14 +6,15 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 21:42:58 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/27 11:26:33 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/05/30 17:03:02 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printf_type_c(int *j, int c)
+void	ft_printf_type_c(int c, int *bytes)
 {
 	ft_putchar(c);
-	*j += 1;
+	*bytes += 1;
+
 }
