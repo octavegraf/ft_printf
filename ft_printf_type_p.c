@@ -6,7 +6,7 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 08:39:11 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/28 16:05:58 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/06/01 17:51:20 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_printf_type_p(int *j, void *ptr)
 {
-	char					result[15];
+	char					result[12];
 	char					*hexa;
 	unsigned long long int	mem;
 	int						i;
 
 	mem = (unsigned long long int)ptr;
-	i = 14;
+	i = 11;
 	hexa = "0123456789abcdef";
 	while (--i >= 0)
 	{
@@ -28,7 +28,7 @@ void	ft_printf_type_p(int *j, void *ptr)
 		mem /= 16;
 	}
 	result[1] = 'x';
-	result[14] = '\0';
+	result[11] = '\0';
 	ft_putstr(result);
-	*j += 14;
+	*j += 11;
 }
