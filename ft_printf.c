@@ -6,87 +6,55 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:13:03 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/30 17:07:59 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/06/01 18:06:34 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	detect_conversion(const char **str, va_list params, int *bytes)
+void	detect_conversion(const char **str, va_list prtf, int *bits)
 {
+	(*str)++;
+
 	if (**str == 'c')
-		ft_printf_type_c(va_arg(params, int), bytes);
-	else if (*(str + 1) == 's')
-		ft_printf_type_s(j, va_arg(params, char *));
-	else if (*(str + 1) == 'p')
-		ft_printf_type_p(j, va_arg(params, void *));
-	else if ((*(str + 1) == 'd') || (*(str + 1) == 'i'))
-		ft_printf_type_d_i(j, va_arg(params, int));
-	else if (*(str + 1) == 'u')
-		ft_printf_type_u(j, va_arg(params, unsigned int));
-	else if (*(str + 1) == 'x')
-		ft_printf_type_x(j, va_arg(params, unsigned int), "0123456789abcdef");
-	else if (*(str + 1) == 'X')
-		ft_printf_type_x(j, va_arg(params, unsigned int), "0123456789ABCDEF");
-	else if (*(str + 1) == '%')
+		ft_printf_type_c(bits, va_arg(prtf, int));
+	else if (**str == 's')
+		ft_printf_type_s(bits, va_arg(prtf, char *));
+	else if (**str == 'p')
+		ft_printf_type_p(bits, va_arg(prtf, void *));
+	else if (**str == 'd' || **str == 'i')
+		ft_printf_type_d_i(bits, va_arg(prtf, int));
+	else if (**str == 'u')
+		ft_printf_type_u(bits, va_arg(prtf, unsigned int));
+	else if (**str == 'x')
+		ft_printf_type_x(bits, va_arg(prtf, unsigned int), "0123456789abcdef");
+	else if (**str == 'X')
+		ft_printf_type_x(bits, va_arg(prtf, unsigned int), "0123456789ABCDEF");
+	else if (**str == '%')
 	{
 		ft_putchar('%');
-		**str++;
+		(void)*str++;
 	}
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	params;
-	int		bytes;
+	va_list	prtf;
+	int		bits;
 
-	va_start(params, str);
+	bits = 0;
+	va_start(prtf, str);
 	while (*str)
 	{
-		if (*str == '%')
-			detect_conversion(&str, params, &bytes);
+		if (*str == '%' && *(str + 1))
+			detect_conversion(&str, prtf, &bits);
 		else
 		{
 			ft_putchar(*str);
-			str += 1;
+			bits++;
 		}
+		str++;
 	}
-	va_end(params);
-	return (bytes);
+	va_end(prtf);
+	return (bits);
 }
-/* 
-int	main(void)
-{
-	char	*test = "";
-	int		ft_printf_len = 0;
-	int		printf_len = 0;
-
-	ft_printf_len = ft_printf("%c\n", 'a');
-	printf_len = printf("%c\n", 'a');
-	printf("\nft_printf lenght = %d, printf lenght = 
-			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
-	ft_printf_len = ft_printf("%s\n", "Ceci est un test.");
-	printf_len = printf("%s\n", "Ceci est un test.");
-	printf("\nft_printf lenght = %d, printf lenght = 
-			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
-	ft_printf_len = ft_printf("%p\n", test);
-	printf_len = printf("%p\n", test);
-	printf("\nft_printf lenght = %d, printf lenght = 
-			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
-	ft_printf_len = ft_printf("%d, %i; %d, %i\n", INT_MIN, INT_MIN, INT_MAX, 
-			INT_MAX);
-	printf_len = printf("%d, %i; %d, %i\n", INT_MIN, INT_MIN, INT_MAX, INT_MAX);
-	printf("\nft_printf lenght = %d, printf lenght = 
-			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
-	ft_printf_len = ft_printf("%x, %X; %x, %X\n", INT_MIN, INT_MIN, INT_MAX, 
-			INT_MAX);
-	printf_len = printf("%x, %X; %x, %X\n", INT_MIN, INT_MIN, INT_MAX, INT_MAX);
-	printf("\nft_printf lenght = %d, printf lenght = 
-			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
-	ft_printf_len = ft_printf("%%\n");
-	printf_len = printf("%%\n");
-	printf("\nft_printf lenght = %d, printf lenght = 
-			%d\n\n—————————————————————\n\n", ft_printf_len, printf_len);
-	return (0);
-}
- */
