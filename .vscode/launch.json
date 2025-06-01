@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug ft_printf",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/debug",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "MIMode": "lldb",
+      "externalConsole": false,
+      "preLaunchTask": "build"
+    }
+  ]
+}
