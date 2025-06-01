@@ -1,5 +1,5 @@
 CC				= cc
-CFLAGS			= -Wall -Wextra -Werror -g
+CFLAGS			= -Wall -Wextra -Werror
 NAME			= libftprintf.a
 SOURCES			= ft_printf.c ft_printf_type_c.c ft_printf_type_p.c ft_printf_type_u.c \
 				  ft_printf_type_d_i.c ft_printf_type_s.c ft_printf_type_x.c
@@ -23,18 +23,19 @@ $(NAME): $(LIBFT_PATH) $(OBJECTS)
 	$(CC) $(CFLAGS) $(INCLUDES) -I$(LIBFT_DIR) -c $< -o $@
 
 $(LIBFT_PATH):
-	make -C $(LIBFT_DIR) --no-print-directory
+	make -C $(LIBFT_DIR)
 
 clean:
 	rm -f $(OBJECTS)
-	make -C $(LIBFT_DIR) clean --no-print-directory
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean --no-print-directory
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-bonus: all
+debug: fclean
+	$(CC) $(CFLAGS) -g -o debug *.c */*.c
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re debug
