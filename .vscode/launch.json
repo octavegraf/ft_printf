@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug ft_printf",
+      "name": "Debug ft_printf (MacOS)",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/debug",
@@ -11,7 +11,19 @@
       "cwd": "${workspaceFolder}",
       "MIMode": "lldb",
       "externalConsole": false,
-      "preLaunchTask": "build"
+      "preLaunchTask": "build",
+      "osx": true
+    },
+    {
+      "name": "Debug ft_printf (Linux)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/debug",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "preLaunchTask": "build",
+      "linux": true
     }
   ]
 }
