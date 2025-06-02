@@ -9,6 +9,14 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "francinette",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "/home/ocgraf/francinette/tester.sh"
+      ]
     }
   ]
 }
