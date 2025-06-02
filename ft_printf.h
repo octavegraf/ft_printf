@@ -6,7 +6,7 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:26:14 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/31 18:21:19 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/06/02 14:15:14 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	ft_printf_type_d_i(int *j, int nb);
 void	ft_printf_type_p(int *j, void *ptr);
 void	ft_printf_type_s(int *j, char *s);
 void	ft_printf_type_u(int *j, unsigned int nb);
-void	ft_printf_type_x(int *j, int nb, char *base);
+void	ft_printf_type_x(int *j, unsigned int nb, char *base);
 
 #endif

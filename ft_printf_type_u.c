@@ -6,7 +6,7 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 09:25:59 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/05/30 16:00:22 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/06/02 14:32:29 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_printf_type_u(int *j, unsigned int nb)
 {
 	ft_putunnbr(nb);
-	*j += ft_intlen(nb);
+	*j += ft_unlen(nb);
 }
