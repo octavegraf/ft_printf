@@ -6,7 +6,7 @@
 /*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:13:03 by ocgraf            #+#    #+#             */
-/*   Updated: 2025/06/01 18:06:34 by ocgraf           ###   ########.fr       */
+/*   Updated: 2025/06/01 18:19:01 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	detect_conversion(const char **str, va_list prtf, int *bits)
 	{
 		ft_putchar('%');
 		(void)*str++;
+		*bits += 1;
 	}
 }
 
